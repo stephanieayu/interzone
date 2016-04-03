@@ -1,0 +1,597 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+
+            .demo-container.clocks {
+              background: #ababab;
+              padding: 0;
+              width: 100%;
+              height: 60vh;
+              margin: 0;
+              overflow: hidden;
+            }
+
+            .clock {
+              border-radius: 50%;
+              background: radial-gradient(#000, #000 0.1em, #fff 0.1em, #fff), #fff;
+              display: inline-block;
+              margin: 1%;
+              padding-bottom: 31%;
+              position: relative;
+              top: 50%;
+              width: 31%;
+              opacity: 0;
+              transform: translateY(-40%);
+            }
+
+            .clock.show {
+              opacity: 1;
+              transform: translateY(-50%);
+              transition: all 2.5s 0.5s cubic-bezier(.12,1.03,.34,1);
+            }
+
+            .clock::after {
+              background: red;
+              border-radius: 50%;
+              content: "";
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              width: 4%;
+              height: 4%;
+              z-index: 10;
+            }
+
+            .minutes-container, .hours-container, .seconds-container {
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+            }
+
+            .hours-container {
+              animation: rotate 43200s infinite linear;
+            }
+            .linear {
+              .minutes-container {
+                animation: rotate 3600s infinite linear;
+              }
+              .seconds-container {
+                animation: rotate 60s infinite linear;
+              }
+            }
+
+            .steps {
+              .minutes-container {
+                animation: rotate 3600s infinite steps(60);
+              }
+              .seconds-container {
+                animation: rotate 60s infinite steps(60);
+              }
+            }
+
+            .local.steps {
+              .minutes-container {
+                animation: none;
+              }
+            }
+
+            .bounce {
+              .minutes-container {
+                transition: transform 0.3s cubic-bezier(.4,2.08,.55,.44);
+              }
+              .seconds-container {
+                transition: transform 0.2s cubic-bezier(.4,2.08,.55,.44);
+              }
+            }
+
+            .hours {
+              background: #4dbf63;
+              width: 3.5%;
+              height: 40%;
+              position: absolute;
+              left: 48.25%;
+              top: 22%;
+              transform-origin: 50% 71%;
+            }
+            .hours-2{
+              background: #7773cc;
+              width: 3.5%;
+              height: 40%;
+              position: absolute;
+              left: 48.25%;
+              top: 22%;
+              transform-origin: 50% 71%;
+            }
+            .hours-3 {
+              background: #f5a841;
+              width: 3.5%;
+              height: 40%;
+              position: absolute;
+              left: 48.25%;
+              top: 22%;
+              transform-origin: 50% 71%;
+            }
+            .minutes {
+              background: #000;
+              width: 3.5%;
+              height: 55%;
+              position: absolute;
+              left: 48.25%;
+              top: 7%;
+              transform-origin: 50% 78.5%;
+            }
+
+            .seconds {
+              background: red;
+              width: 1.5%;
+              height: 42%;
+              position: absolute;
+              left: 49.25%;
+              top: 20%;
+              transform-origin: 50% 71%;
+              z-index: 8;
+            }
+
+            .label {
+              background: #fff;
+              border-radius: 0.25em;
+              color: #000;
+              font-family: MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;
+              font-size: 1em;
+              font-weight: bold;
+              text-transform: uppercase;
+              padding: 0.5em 0.75em 0.25em;
+              position: absolute;
+              top: -4em;
+              left: 50%;
+              transform: translate(-50%, 0);
+            }
+
+            @keyframes rotate {
+              100% {
+                transform: rotateZ(360deg);
+              }
+            }
+
+            .clock.station {
+              background: #fff url(//cssanimation.rocks/images/posts/clocks/station_clock.svg) no-repeat center;
+              background-size: 95%;
+              box-shadow: 0 0 0.5em rgba(0,0,0,0.2) inset;
+              margin:auto;
+            }
+
+            .clock.station .seconds::before {
+              background: red;
+              border-radius: 50%;
+              content: "";
+              position: absolute;
+              top: -9%;
+              left: -200%;
+              height: 18%;
+              width: 500%;
+            }
+
+            .clock.ios7 {
+              background: #fff url(/images/posts/clocks/ios_clock.svg) no-repeat center;
+              background-size: 88%;
+            }
+
+            .clock.ios7:before {
+              background: black;
+              border-radius: 50%;
+              content: "";
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              width: 6%;
+              height: 6%;
+              z-index: 0;
+            }
+
+            .clock.ios7:after {
+              width: 2%;
+              height: 2%;
+            }
+
+            .clock.ios7 .seconds {
+              border-radius: 200%/10%;
+              height: 30%;
+              left: 49.5%;
+              top: 20%;
+              width: 1%;
+              transform-origin: 50% 100%;
+            }
+
+            .clock.ios7 .minutes {
+              border-radius: 150%/10%;
+              width: 2%;
+              height: 35%;
+              left: 49%;
+              top: 15%;
+              transform-origin: 50% 100%;
+            }
+
+            .clock.ios7 .hours {
+              border-radius: 85%/10%;
+              width: 2%;
+              height: 20%;
+              left: 49%;
+              top: 30%;
+              transform-origin: 50% 100%;
+            }
+
+
+            .clock.simple {
+              background: #fff url(/images/posts/clocks/ios_clock.svg) no-repeat center;
+              background-size: 88%;
+            }
+
+            .clock.simple:after {
+              background-color: #000;
+              width: 5%;
+              height: 5%;
+            }
+
+            .clock.simple .seconds {
+              background-color: #000;
+              height: 45%;
+              left: 49.5%;
+              top: 14%;
+              width: 1%;
+              transform-origin: 50% 80%;
+            }
+
+            .clock.simple .minutes {
+              width: 2%;
+              height: 40%;
+              left: 49%;
+              top: 10%;
+              transform-origin: 50% 100%;
+            }
+
+            .clock.simple .hours {
+              width: 2.5%;
+              height: 20%;
+              left: 48.75%;
+              top: 30%;
+              transform-origin: 50% 100%;
+            }
+
+            .hours.angled {
+              transform: rotateZ(-40deg);
+            }
+
+            .minutes.angled {
+              transform: rotateZ(40deg);
+            }
+
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <div class="demo-container clocks active bounce">
+          <article class="clock station">
+            <section class="hours-container">
+              <section class="hours"></section>
+            </section>
+             <section class="hours-container">
+              <section class="hours-2"></section>
+            </section>
+             <section class="hours-container">
+              <section class="hours-3"></section>
+            </section>
+            <section class="minutes-container">
+              <section class="minutes"></section>
+            </section>
+            <section class="seconds-container">
+              <section class="seconds"></section>
+            </section>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2015</p>
+      </footer>
+    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.3/moment-timezone.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+        <script>
+            /*
+             *  Main function to set the clock times
+             */
+            (function() {
+              // Initialise the locale-enabled clocks
+              initInternationalClocks();
+              // Initialise any local time clocks
+              initLocalClocks();
+              // Start the seconds container moving
+              moveSecondHands();
+              // Set the intial minute hand container transition, and then each subsequent step
+              setUpMinuteHands();
+            })();
+
+            /*
+             *  Set up an entry for each locale of clock we want to use
+             */
+             function getTimes() {
+              moment.tz.add([
+                'Eire|GMT IST|0 -10|01010101010101010101010|1BWp0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00 11A0 1o00 11A0 1qM0 WM0 1qM0 WM0 1qM0 11A0 1o00 11A0 1o00',
+                'Asia/Tokyo|JST|-90|0|',
+                'America/New_York|EST EDT|50 40|0101|1Lz50 1zb0 Op0'
+                ]);
+              var now = new Date();
+              // Set the time manually for each of the clock types we're using
+              var times = [
+
+                {
+                  jsclass: 'js-new-york',
+                  jstime: moment.tz(now, "America/New_York")
+                }
+              ];
+              return times;
+            }
+
+            /*
+             * Set up the clocks that use moment.js
+             */
+            function initInternationalClocks() {
+
+              // Get the local time using JS
+              var date = new Date;
+              var seconds = date.getSeconds();
+              var minutes = date.getMinutes();
+              var hours = date.getHours();
+
+              var hands = [
+                {
+                  hand: 'hours',
+                  angle: (hours * 30) + (minutes / 2)
+                },
+                {
+                  hand: 'hours-2',
+                  angle: ( (hours-2) * 30) + (minutes / 2)
+                },
+                {
+                  hand: 'hours-3',
+                  angle: ( (hours+2) * 30) + (minutes / 2)
+                },
+
+                {
+                  hand: 'minutes',
+                  angle: (minutes * 6)
+                },
+                {
+                  hand: 'seconds',
+                  angle: (seconds * 6)
+                }
+              ];
+
+              // Loop through each of these hands to set their angle
+              for (var j = 0; j < hands.length; j++) {
+                var elements = document.querySelectorAll('.' + hands[j].hand);
+
+                for (var k = 0; k < elements.length; k++) {
+
+                    elements[k].style.webkitTransform = 'rotateZ('+ hands[j].angle +'deg)';
+                    elements[k].style.transform = 'rotateZ('+ hands[j].angle +'deg)';
+
+                    // If this is a minute hand, note the seconds position (to calculate minute position later)
+                    if (hands[j].hand === 'minutes') {
+                      elements[k].parentNode.setAttribute('data-second-angle', hands[j + 1].angle);
+                    }
+                }
+              }
+
+              // Add a class to the clock container to show it
+              var elements = document.querySelectorAll('.clock');
+              for (var l = 0; l < elements.length; l++) {
+                elements[l].className = elements[l].className + ' show';
+              }
+            }
+
+            /*
+             * Starts any clocks using the user's local time
+             */
+            function initLocalClocks() {
+              // Get the local time using JS
+              var date = new Date;
+              var seconds = date.getSeconds();
+              var minutes = date.getMinutes();
+              var hours = date.getHours();
+
+              // Create an object with each hand and it's angle in degrees
+              var hands = [
+                {
+                  hand: 'hours-2',
+                  angle: (hours -2 * 30) + (minutes / 2)
+                },
+                 {
+                  hand: 'hours-3',
+                  angle: (hours + 2* 30) + (minutes / 2)
+                },
+                {
+                  hand: 'hours',
+                  angle: (hours * 30) + (minutes / 2)
+                },
+                {
+                  hand: 'minutes',
+                  angle: (minutes * 6)
+                },
+                {
+                  hand: 'seconds',
+                  angle: (seconds * 6)
+                }
+              ];
+              // Loop through each of these hands to set their angle
+              for (var j = 0; j < hands.length; j++) {
+                var elements = document.querySelectorAll('.local .' + hands[j].hand);
+                for (var k = 0; k < elements.length; k++) {
+                    elements[k].style.transform = 'rotateZ('+ hands[j].angle +'deg)';
+                    // If this is a minute hand, note the seconds position (to calculate minute position later)
+                    if (hands[j].hand === 'minutes') {
+                      elements[k].parentNode.setAttribute('data-second-angle', hands[j + 1].angle);
+                    }
+                }
+              }
+            }
+
+            /*
+             * Move the second containers
+             */
+            function moveSecondHands() {
+              var containers = document.querySelectorAll('.bounce .seconds-container');
+              setInterval(function() {
+                for (var i = 0; i < containers.length; i++) {
+                  if (containers[i].angle === undefined) {
+                    containers[i].angle = 6;
+                  } else {
+                    containers[i].angle += 6;
+                  }
+                  containers[i].style.webkitTransform = 'rotateZ('+ containers[i].angle +'deg)';
+                  containers[i].style.transform = 'rotateZ('+ containers[i].angle +'deg)';
+                }
+              }, 1000);
+              for (var i = 0; i < containers.length; i++) {
+                // Add in a little delay to make them feel more natural
+                var randomOffset = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
+                containers[i].style.transitionDelay = '0.0'+ randomOffset +'s';
+              }
+            }
+
+            /*
+             * Set a timeout for the first minute hand movement (less than 1 minute), then rotate it every minute after that
+             */
+            function setUpMinuteHands() {
+              // More tricky, this needs to move the minute hand when the second hand hits zero
+              var containers = document.querySelectorAll('.minutes-container');
+              var secondAngle = containers[containers.length - 1].getAttribute('data-second-angle');
+              console.log(secondAngle);
+              if (secondAngle > 0) {
+                // Set a timeout until the end of the current minute, to move the hand
+                var delay = (((360 - secondAngle) / 6) + 0.1) * 1000;
+                console.log(delay);
+                setTimeout(function() {
+                  moveMinuteHands(containers);
+                }, delay);
+              }
+            }
+
+            /*
+             * Do the first minute's rotation, then move every 60 seconds after
+             */
+            function moveMinuteHands(containers) {
+              for (var i = 0; i < containers.length; i++) {
+                containers[i].style.webkitTransform = 'rotateZ(6deg)';
+                containers[i].style.transform = 'rotateZ(6deg)';
+              }
+              // Then continue with a 60 second interval
+              setInterval(function() {
+                for (var i = 0; i < containers.length; i++) {
+                  if (containers[i].angle === undefined) {
+                    containers[i].angle = 12;
+                  } else {
+                    containers[i].angle += 6;
+                  }
+                  containers[i].style.webkitTransform = 'rotateZ('+ containers[i].angle +'deg)';
+                  containers[i].style.transform = 'rotateZ('+ containers[i].angle +'deg)';
+                }
+              }, 60000);
+            }
+
+        </script>
+    </body>
+</html>
