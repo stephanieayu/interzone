@@ -1,17 +1,80 @@
 /* ==========================================================================
    Author's custom styles
+    Purple: #8D74E8
+    Orange: #FFA733
+    Cyan: #03D3D8
+
    ========================================================================== */
 
 body {
-    padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight:300;
+}
+
+.clock-cont{
+  height:30em;
+}
+
+.jumbotron{
+  background-color:#fff;
+}
+
+.jumbotron h1{
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-top:0;
+}
+
+.jumbotron h3{
+  font-family: 'Roboto Condensed', sans-serif;
+  position:relative;
+  width:17%;
+}
+
+.jumbotron h3:before, .jumbotron h3:after {
+
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: 0.15em;
+
+  background-image: -webkit-linear-gradient(0deg, #8D74E8 34%, #FFA733 1px, #FFA733 69%, #03D3D8 1px, #03D3D8 33%);
+  background-image: -ms-linear-gradient(0deg, #8D74E8 34%, #FFA733 1px, #FFA733 69%, #03D3D8 1px, #03D3D8 33%);
+
+  background-size: 100%;
+  bottom:-0.3em;
+}
+
+.jumbotron h4{
+  font-size:1.3em;
+  font-weight:bold;
+}
+
+.jumbotron p{
+  font-size:1.3em;
+}
+
+
+
+
+.middle{
+  background-color:#eee;
+}
+
+.footer-cont{
+  background-color:#483f3f;
+  color:#fff;
+}
+
+footer p{
+  text-align:center;
 }
 
 .demo-container.clocks {
-  background: #ababab;
+  background: #fff;
   padding: 0;
-  width: 100%;
-  height: 60vh;
+  height: 30em;
   margin: 0;
   overflow: hidden;
 }
@@ -21,10 +84,10 @@ body {
   background: radial-gradient(#000, #000 0.1em, #fff 0.1em, #fff), #fff;
   display: inline-block;
   margin: 1%;
-  padding-bottom: 31%;
+  padding-bottom: 61%;
   position: relative;
-  top: 50%;
-  width: 31%;
+  top: 53%;
+  width: 61%;
   opacity: 0;
   transform: translateY(-40%);
 }
@@ -148,7 +211,7 @@ body {
   background: #fff url(/img/interzone_clock.svg) no-repeat center;
   background-size: 162%;
   box-shadow: 0 0 0.5em rgba(0,0,0,0.2) inset;
-  margin:auto;
+  margin-left:auto;
 }
 
 .clock.station .seconds::before {
