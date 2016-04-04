@@ -19,7 +19,10 @@ body {
   background-color:#fff;
 }
 
-
+.jumbotron img{
+  width:54%;
+  margin-bottom:3em;
+}
 
 .jumbotron h1{
   font-family: 'Roboto Condensed', sans-serif;
@@ -175,7 +178,7 @@ footer img{
 .demo-container.clocks {
   background: #fff;
   padding: 0;
-  height: 30em;
+  height: 29em;
   margin: 0;
   overflow: hidden;
 }
@@ -185,10 +188,10 @@ footer img{
   background: radial-gradient(#000, #000 0.1em, #fff 0.1em, #fff), #fff;
   display: inline-block;
   margin: 1%;
-  padding-bottom: 61%;
+  padding-bottom: 69%;
   position: relative;
-  top: 53%;
-  width: 61%;
+  top: 52%;
+  width: 69%;
   opacity: 0;
   transform: translateY(-40%);
 }
@@ -257,7 +260,7 @@ footer img{
 }
 
 .hours {
-  background: #4dbf63;
+  background: #000;
   width: 3.5%;
   height: 40%;
   position: absolute;
