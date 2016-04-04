@@ -62,11 +62,11 @@
       <div class="container">
         <!-- Example row of columns -->
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-6 middle-col">
             <p>Below are three interzones within one city, shifted 2 hours apart from each other. Interzones are not dictated by your neighborhood. Individuals opt-in to the interzone that best suits them, and simply sets their clocks accordingly. Everything else stays the same.</p>
             <img src="/img/interzone_diagram1.svg">
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 middle-col">
             <p>Traffic data shows common peak hours, resulting from our shared daily patterns. Preliminary experiments show that breaking that single traffic flow into three interzones would allow gridlock to be avoided completely.</p>
             <img src="/img/interzone_diagram2.svg">
          </div>
@@ -75,41 +75,58 @@
     </div> <!-- /container -->
     <div class="container">
       <div class="row">
-        <h2>Which interzone would you opt-in to?</h2>
+        <h2 class="middle-h2">Which interzone would you opt-in to?</h2>
       </div>
       <div class="row">
-        <div class="col-sm-4">
-          <h3>IZ 1</h3>
-          <h3>12:47:44 PM</h3>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <h4 class="bold">Perfect for professions such as:</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <div class="col-sm-4 zone zone1">
+          <img src="/img/interzone_iz1.svg"/>
+
+          <h4>12:47:44 PM</h4>
+          <div class="description">
+            <h5>STANDARD TIME –2 HOURS</h5>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          </div>
+          <div class="professions">
+            <h5 class="bold">Perfect for professions such as:</h5>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          </div>
           <p><a class="btn btn-default" href="#" role="button">OPT-IN TO IZ 1</a></p>
         </div>
-        <div class="col-sm-4">
-          <h3>IZ 2</h3>
-          <h3>12:47:44 PM</h3>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <h4 class="bold">Perfect for professions such as:</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+        <div class="col-sm-4 zone zone2">
+          <img src="/img/interzone_iz2.svg"/>
+
+          <h4>2:47:44 PM</h4>
+          <div class="description">
+            <h5>STANDARD TIME</h5>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          </div>
+          <div class="professions">
+            <h5 class="bold">Perfect for professions such as:</h5>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          </div>
           <p><a class="btn btn-default" href="#" role="button">OPT-IN TO IZ 2</a></p>
-       </div>
-        <div class="col-sm-4">
-          <h3>IZ 3</h3>
-          <h3>12:47:44 PM</h3>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <h4 class="bold">Perfect for professions such as:</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">OPT-IN TO IZ 3</a></p>
         </div>
-      </div>
 
+        <div class="col-sm-4 zone zone3">
+          <img src="/img/interzone_iz3.svg"/>
 
+          <h4>4:47:44 PM</h4>
+          <div class="description">
+            <h5>STANDARD TIME +2 HOURS</h5>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          </div>
+          <div class="professions">
+            <h5 class="bold">Perfect for professions such as:</h5>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          </div>
+          <p><a class="btn btn-default" href="#" role="button">OPT-IN TO IZ 2</a></p>
+        </div>
     </div> <!-- /container -->
     <div class="container-fluid footer-cont">
 
       <footer>
-        <p>Learn more about Project Interzone</p>
+        <h4>Learn more about Project Interzone</h4>
         <p>projectinterzone@gmail.com&nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp@PRJ_interzone&nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp#whattimeisit</p>
 
         <img src="/img/interzone_footer_logo.svg">

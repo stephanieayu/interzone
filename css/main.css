@@ -7,7 +7,6 @@
    ========================================================================== */
 
 body {
-    padding-bottom: 20px;
     font-family: 'Roboto', sans-serif;
     font-weight:300;
 }
@@ -19,6 +18,8 @@ body {
 .jumbotron{
   background-color:#fff;
 }
+
+
 
 .jumbotron h1{
   font-family: 'Roboto Condensed', sans-serif;
@@ -55,20 +56,120 @@ body {
   font-size:1.3em;
 }
 
+.zone{
+  text-align:center;
+  padding:0 3% 0 3%;
+}
 
+.zone img{
+  margin: .6em 0;
+}
+
+.zone h4{
+  font-size:2em;
+  font-weight:bold;
+  margin: .4em 0;
+}
+
+.zone .professions{
+  margin:2.5em 0;
+}
+
+.zone .bold{
+  font-size:1.1em;
+}
+
+.zone .btn{
+  background-color:#fff;
+  border-radius:0;
+  background-image:none;
+  width:70%;
+  box-shadonw:none;
+  text-shadow:none;
+  font-size:1.16em;
+  padding:0.53em 0;
+}
+
+.zone1 .btn{
+  color: #8D74E8;
+  border:2px solid #8D74E8;
+}
+.zone1 h4{
+  color: #8D74E8;
+}
+
+.zone2 .btn{
+  border:2px solid #FFA733;
+  color:#FFA733;
+}
+.zone2 h4{
+  color:#FFA733;
+}
+.zone3 .btn{
+  color: #03D3D8;
+  border:2px solid #03D3D8;
+}
+.zone3 h4{
+  color: #03D3D8;
+}
+
+.description{
+  margin:2.3em 0 2em 0;
+}
+
+.description h5{
+  font-size:1.5em;
+}
+
+.middle-col{
+  padding:1.8em;
+}
+
+.middle-col img{
+  margin:2em 0;
+  width:93%;
+}
+
+.middle-col p{
+  margin:1em 0;
+}
 
 
 .middle{
+  padding:1em 0;
   background-color:#eee;
 }
 
+.middle-h2{
+  text-align:center;
+  margin: 1.2em 0 1em 0;
+  font-size:3.5em;
+}
+
 .footer-cont{
+  margin-top: 4em;
   background-color:#483f3f;
   color:#fff;
 }
 
+footer{
+  padding: 2em 0 4em 0;
+}
+
 footer p{
   text-align:center;
+}
+
+footer h4{
+  font-size:1em;
+  text-align:center;
+  font-weight:bold;
+}
+
+footer img{
+  margin:1.5em auto 0 auto;
+  height:2.4em;
+  display:block;
 }
 
 .demo-container.clocks {
