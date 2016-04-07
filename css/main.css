@@ -97,6 +97,11 @@ body {
   color: #8D74E8;
   border:2px solid #8D74E8;
 }
+.zone1 .btn:hover{
+  background-color: #8D74E8;
+  border:none;
+  color:#fff;
+}
 .zone1 h4{
   color: #8D74E8;
 }
@@ -105,12 +110,22 @@ body {
   border:2px solid #FFA733;
   color:#FFA733;
 }
+.zone2 .btn:hover{
+  background-color:#FFA733;
+  border:none;
+  color:#fff;
+}
 .zone2 h4{
   color:#FFA733;
 }
 .zone3 .btn{
   color: #03D3D8;
   border:2px solid #03D3D8;
+}
+.zone3 .btn:hover{
+  background-color: #03D3D8;
+  border:none;
+  color:#fff;
 }
 .zone3 h4{
   color: #03D3D8;
@@ -162,6 +177,18 @@ footer{
 footer p{
   text-align:center;
 }
+
+footer a{
+  color:#fff;
+}
+footer a:hover{
+  color:#eee;
+}
+footer a:visited{
+  color:#eee;
+}
+
+
 
 footer h4{
   font-size:1em;
