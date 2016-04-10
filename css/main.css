@@ -164,10 +164,25 @@ body {
   font-size:3.5em;
 }
 
+.img-cont{
+  padding-bottom:7em;
+}
+
 .footer-cont{
   margin-top: 4em;
   background-color:#483f3f;
   color:#fff;
+}
+
+.footer-a{
+  padding: 0 10px 0 10px;
+}
+.footer-a:first-child{
+  border-right: 1px solid #eee;
+}
+.footer-a:last-child{
+  border-left: 1px solid #eee;
+
 }
 
 footer{
@@ -450,4 +465,45 @@ footer img{
 
 .minutes.angled {
   transform: rotateZ(40deg);
+}
+
+@media only screen and (max-width : 767px){
+
+
+  .clock.station {
+    margin:auto;
+  }
+}
+
+@media (max-width : 767px) and (orientation:landscape) {
+  .clock.station {
+    margin:0 0 0 auto;
+  }
+  .col-sm-6{
+     width: 50%;
+     float:left;
+   }
+}
+@media (max-width : 767px) and (orientation:portrait) {
+
+  .footer-a{
+    margin:10px auto 10px auto;
+    display:block;
+  }
+  .footer-a:first-child{
+    border:none;
+  }
+  .footer-a:last-child{
+    border:none;
+  }
+  .demo-container.clocks {
+    height: 18em;
+  }
+
+  .clock-cont{
+    height:18em;
+  }
+  .clock.station {
+    margin:auto;
+  }
 }
