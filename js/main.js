@@ -166,5 +166,3 @@ function moveMinuteHands(containers) {
     }
   }, 60000);
 }
-
-
